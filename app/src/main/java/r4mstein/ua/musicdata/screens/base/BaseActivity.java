@@ -32,12 +32,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .commit();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-
     public void replaceFragmentWithBackStack(BaseFragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
