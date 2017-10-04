@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MusicData</string>
+    <string name="app_name">Music Data</string>
 
     <string name="api_key">6f27dbea71d282779c96886a90e61281</string>
     <string name="secret">10cc91d8dbcca451d17149964ecac1cc</string>
