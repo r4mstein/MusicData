@@ -2,7 +2,6 @@ package r4mstein.ua.musicdata.screens.main;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import javax.inject.Inject;
 
