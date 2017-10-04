@@ -1,15 +1,21 @@
 package r4mstein.ua.musicdata.screens.main;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.base.BaseActivity;
 
 public class MainActivity extends BaseActivity implements MainContract.MainView {
 
     private static final String TAG = "MainActivity";
+
+    @Inject
+    MainPresenter mMainPresenter;
 
     private Toolbar mToolbar;
 
@@ -35,6 +41,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
     }
 
