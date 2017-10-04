@@ -12,7 +12,7 @@
         android:layout_marginTop="@dimen/margin_200"
         android:gravity="center"
         android:text="@string/tv_main_AS"
-        android:textSize="@dimen/text_size_30"
+        android:textSize="@dimen/text_size_40"
         android:textStyle="bold"
         android:textColor="@color/red_a400"
         />
@@ -34,7 +34,7 @@
         android:id="@+id/iv_logo_AS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_200"
+        android:layout_marginTop="@dimen/margin_215"
         android:src="@drawable/main_logo"/>
 
 </RelativeLayout>
