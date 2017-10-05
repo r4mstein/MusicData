@@ -25,7 +25,8 @@ public class TopArtistsPresenter extends BasePresenter implements TopArtistsCont
 
     private static final String TAG = "TopArtistsPresenter";
     private TopArtistsContract.TopArtistsView mView;
-    private ChartProvider mChartProvider = new ChartProvider();
+    @Inject
+    ChartProvider mChartProvider;
 
     private long current_page;
     private long total_pages;
