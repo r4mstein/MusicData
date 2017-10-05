@@ -16,14 +16,15 @@ import r4mstein.ua.musicdata.screens.base.BaseFragment;
 import r4mstein.ua.musicdata.screens.chart.top_artists.adapter.TopArtistsAdapter;
 import r4mstein.ua.musicdata.screens.dialogs.LoadingDialog;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
+import r4mstein.ua.musicdata.utils.Logger;
 import r4mstein.ua.musicdata.utils.endless.EndlessScrollListener;
 
 public class TopArtistsFragment extends BaseFragment<MainActivity> implements TopArtistsContract.TopArtistsView {
 
-    private static final String TAG = "TopArtistsFragment";
-
     @Inject
     TopArtistsPresenter mPresenter;
+    @Inject
+    Logger mLogger;
 
     private RecyclerView mRecyclerView;
     private TopArtistsAdapter mAdapter;
@@ -67,7 +68,7 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new TopArtistsAdapter(getContext());
-        mAdapter.setClickListener(name -> Log.d(TAG, "itemClicked: name: " + name));
+        mAdapter.setClickListener(name -> mLogger.d("itemClicked: name: " + name));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(new EndlessScrollListener(layoutManager, () -> {
             mPresenter.getNextPage();

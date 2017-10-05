@@ -1,7 +1,5 @@
 package r4mstein.ua.musicdata.screens.chart.top_artists;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +13,7 @@ import r4mstein.ua.musicdata.data.models.respons.ChartTopArtists.Artist;
 import r4mstein.ua.musicdata.data.models.respons.ChartTopArtists.ChartTopArtists;
 import r4mstein.ua.musicdata.data.providers.ChartProvider;
 import r4mstein.ua.musicdata.screens.base.BasePresenter;
+import r4mstein.ua.musicdata.utils.Logger;
 
 import static r4mstein.ua.musicdata.utils.Constants.API_KEY;
 import static r4mstein.ua.musicdata.utils.Constants.FORMAT;
@@ -23,10 +22,11 @@ import static r4mstein.ua.musicdata.utils.Constants.REQUEST_CHART_TA;
 
 public class TopArtistsPresenter extends BasePresenter implements TopArtistsContract.TopArtistsPresenter {
 
-    private static final String TAG = "TopArtistsPresenter";
     private TopArtistsContract.TopArtistsView mView;
     @Inject
     ChartProvider mChartProvider;
+    @Inject
+    Logger mLogger;
 
     private long current_page;
     private long total_pages;
@@ -61,7 +61,7 @@ public class TopArtistsPresenter extends BasePresenter implements TopArtistsCont
                 .subscribe(
                         response -> processingResponse(pageNumber, response),
                         throwable -> {
-                            Log.d(TAG, throwable.getMessage());
+                            mLogger.d(throwable.getMessage());
                             mView.progressDialogHide();
                         }
                 );
