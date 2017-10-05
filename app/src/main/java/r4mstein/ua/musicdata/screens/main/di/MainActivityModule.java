@@ -2,11 +2,14 @@ package r4mstein.ua.musicdata.screens.main.di;
 
 import dagger.Module;
 import dagger.Provides;
+import r4mstein.ua.musicdata.screens.chart.top_artists.di.TopArtistsComponent;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
 import r4mstein.ua.musicdata.screens.main.MainContract;
 import r4mstein.ua.musicdata.screens.main.MainPresenter;
 
-@Module
+@Module(subcomponents = {
+        TopArtistsComponent.class
+})
 public class MainActivityModule {
 
     @Provides

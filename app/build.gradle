@@ -71,6 +71,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
 
     // other
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
     // https://github.com/ArthurGhazaryan/lastfm-lib
     compile 'com.github.ag:lastfm-library:1.0.2'
 }

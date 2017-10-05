@@ -1,17 +1,25 @@
 package r4mstein.ua.musicdata.screens.main;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
 import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.base.BaseActivity;
+import r4mstein.ua.musicdata.screens.chart.top_artists.TopArtistsFragment;
 
-public class MainActivity extends BaseActivity implements MainContract.MainView {
+public class MainActivity extends BaseActivity implements MainContract.MainView, HasSupportFragmentInjector {
 
     private static final String TAG = "MainActivity";
+
+    @Inject
+    DispatchingAndroidInjector<Fragment> mFragmentDispatchingAndroidInjector;
 
     @Inject
     MainPresenter mMainPresenter;
@@ -36,6 +44,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView 
     @Override
     protected void setupUI() {
         initToolbar();
+        replaceFragment(new TopArtistsFragment());
     }
 
     @Override
@@ -52,5 +61,10 @@ public class MainActivity extends BaseActivity implements MainContract.MainView 
         );
 
         mToolbar.setNavigationOnClickListener(view -> onBackPressed());
+    }
+
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return mFragmentDispatchingAndroidInjector;
     }
 }

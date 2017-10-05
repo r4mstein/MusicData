@@ -13,4 +13,8 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="LoadingDialog" parent="AppTheme">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
 </resources>
