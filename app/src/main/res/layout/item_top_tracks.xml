@@ -17,7 +17,7 @@
         android:layout_height="@dimen/margin_250">
 
         <ImageView
-            android:id="@+id/iv_ITA"
+            android:id="@+id/iv_ITT"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_250"
             tools:src="@drawable/bg"
@@ -25,17 +25,39 @@
             />
 
         <TextView
-            android:id="@+id/tv_name_ITA"
+            android:id="@+id/tv_name_ITT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:gravity="end"
-            android:padding="@dimen/margin_8"
+            android:gravity="end|center"
+            android:paddingBottom="@dimen/margin_8"
+            android:paddingStart="@dimen/margin_8"
+            android:paddingEnd="@dimen/margin_8"
             tools:text="Taylor Swift"
             android:textSize="@dimen/text_size_20"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:background="@color/colorPrimary"
+            android:drawableEnd="@drawable/ic_person"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:id="@+id/tv_track_ITT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_name_ITT"
+            android:gravity="end|center"
+            android:paddingTop="@dimen/margin_8"
+            android:paddingStart="@dimen/margin_8"
+            android:paddingEnd="@dimen/margin_8"
+            tools:text="Look What You Made Me Do"
+            android:textSize="@dimen/text_size_20"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:background="@color/colorPrimary"
+            android:drawableEnd="@drawable/ic_track"
             android:maxLines="1"
             android:ellipsize="end"
             />

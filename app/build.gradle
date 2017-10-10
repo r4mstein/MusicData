@@ -72,6 +72,7 @@ dependencies {
 
     // other
     compile 'jp.wasabeef:glide-transformations:2.0.2'
+    compile 'com.github.andremion:floatingnavigationview:1.1.0'
     // https://github.com/ArthurGhazaryan/lastfm-lib
     compile 'com.github.ag:lastfm-library:1.0.2'
 }

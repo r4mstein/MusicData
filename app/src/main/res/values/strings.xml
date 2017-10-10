@@ -7,4 +7,7 @@
     <string name="tv_main_AS">Music Data</string>
     <string name="tv_secondary_AS">from</string>
 
+    <string name="chart_top_artists">Chart Top Artists</string>
+    <string name="chart_top_tracks">Chart Top Tracks</string>
+
 </resources>

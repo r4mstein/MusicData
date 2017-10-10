@@ -1,4 +1,4 @@
-package r4mstein.ua.musicdata.screens.chart.top_artists;
+package r4mstein.ua.musicdata.screens.chart.top_tracks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
-import r4mstein.ua.musicdata.data.models.TopArtistsModel;
-import r4mstein.ua.musicdata.data.models.response.chart_top_artists.Artist;
-import r4mstein.ua.musicdata.data.models.response.chart_top_artists.ChartTopArtists;
+import r4mstein.ua.musicdata.data.models.TopTracksModel;
+import r4mstein.ua.musicdata.data.models.response.chart_top_tracks.ChartTopTracks;
+import r4mstein.ua.musicdata.data.models.response.chart_top_tracks.Track;
 import r4mstein.ua.musicdata.data.providers.ChartProvider;
 import r4mstein.ua.musicdata.screens.base.BasePresenter;
 import r4mstein.ua.musicdata.utils.Logger;
@@ -18,28 +18,28 @@ import r4mstein.ua.musicdata.utils.Logger;
 import static r4mstein.ua.musicdata.utils.Constants.API_KEY;
 import static r4mstein.ua.musicdata.utils.Constants.FORMAT;
 import static r4mstein.ua.musicdata.utils.Constants.LIMIT;
-import static r4mstein.ua.musicdata.utils.Constants.REQUEST_CHART_TA;
+import static r4mstein.ua.musicdata.utils.Constants.REQUEST_CHART_TT;
 
-public class TopArtistsPresenter extends BasePresenter implements TopArtistsContract.TopArtistsPresenter {
+public class TopTracksPresenter extends BasePresenter implements TopTracksContract.TopTracksPresenter {
 
-    private TopArtistsContract.TopArtistsView mView;
     @Inject
     ChartProvider mChartProvider;
     @Inject
     Logger mLogger;
 
+    private TopTracksContract.TopTracksView mView;
     private long current_page;
     private long total_pages;
 
     @Inject
-    public TopArtistsPresenter(TopArtistsContract.TopArtistsView view) {
+    public TopTracksPresenter(TopTracksContract.TopTracksView view) {
         mView = view;
     }
 
     @Override
     protected void subscribe() {
         current_page = 1;
-        getTopArtists(current_page);
+        getTopTracks(current_page);
     }
 
     @Override
@@ -49,11 +49,11 @@ public class TopArtistsPresenter extends BasePresenter implements TopArtistsCont
 
     @Override
     public void getNextPage() {
-        if (current_page < total_pages) getTopArtists(current_page + 1);
+        if (current_page < total_pages) getTopTracks(current_page + 1);
     }
 
-    private void getTopArtists(long pageNumber) {
-        mChartProvider.getTopArtists(REQUEST_CHART_TA, API_KEY, LIMIT, pageNumber, FORMAT)
+    private void getTopTracks(long pageNumber) {
+        mChartProvider.getTopTracks(REQUEST_CHART_TT, API_KEY, LIMIT, pageNumber, FORMAT)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable -> mView.progressDialogShow())
@@ -67,26 +67,27 @@ public class TopArtistsPresenter extends BasePresenter implements TopArtistsCont
                 );
     }
 
-    private void processingResponse(long pageNumber, ChartTopArtists response) {
+    private void processingResponse(long pageNumber, ChartTopTracks response) {
         current_page = pageNumber;
-        total_pages = Long.parseLong(response.getArtists().getAttr().getTotalPages());
+        total_pages = Long.parseLong(response.getTracks().getAttr().getTotalPages());
 
-        List<TopArtistsModel> dataModels = getData(response);
+        List<TopTracksModel> dataModels = getData(response);
 
         if (current_page == 1) mView.getAdapter().setModels(dataModels);
         else mView.getAdapter().addModels(dataModels);
     }
 
     @android.support.annotation.NonNull
-    private List<TopArtistsModel> getData(@NonNull ChartTopArtists response) {
-        List<Artist> artistsList = response.getArtists().getArtist();
-        List<TopArtistsModel> dataModels = new ArrayList<>();
+    private List<TopTracksModel> getData(@NonNull ChartTopTracks response) {
+        List<Track> artistsList = response.getTracks().getTrack();
+        List<TopTracksModel> dataModels = new ArrayList<>();
 
-        for (Artist artist : artistsList) {
-            TopArtistsModel dataModel = new TopArtistsModel();
+        for (Track track : artistsList) {
+            TopTracksModel dataModel = new TopTracksModel();
 
-            dataModel.setName(artist.getName());
-            dataModel.setPhotoURL(artist.getImage().get(2).getText());
+            dataModel.setName(track.getArtist().getName());
+            dataModel.setTrack(track.getName());
+            dataModel.setPhotoURL(track.getImage().get(2).getText());
 
             dataModels.add(dataModel);
         }

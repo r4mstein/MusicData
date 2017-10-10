@@ -1,13 +1,17 @@
 
-package r4mstein.ua.musicdata.data.models.respons.ChartTopArtists;
+package r4mstein.ua.musicdata.data.models.response.chart_top_tracks;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class Artist {
+public class Track {
 
+    @SerializedName("artist")
+    private Artist mArtist;
+    @SerializedName("duration")
+    private String mDuration;
     @SerializedName("image")
     private List<Image> mImage;
     @SerializedName("listeners")
@@ -19,9 +23,25 @@ public class Artist {
     @SerializedName("playcount")
     private String mPlaycount;
     @SerializedName("streamable")
-    private String mStreamable;
+    private Streamable mStreamable;
     @SerializedName("url")
     private String mUrl;
+
+    public Artist getArtist() {
+        return mArtist;
+    }
+
+    public void setArtist(Artist artist) {
+        mArtist = artist;
+    }
+
+    public String getDuration() {
+        return mDuration;
+    }
+
+    public void setDuration(String duration) {
+        mDuration = duration;
+    }
 
     public List<Image> getImage() {
         return mImage;
@@ -63,11 +83,11 @@ public class Artist {
         mPlaycount = playcount;
     }
 
-    public String getStreamable() {
+    public Streamable getStreamable() {
         return mStreamable;
     }
 
-    public void setStreamable(String streamable) {
+    public void setStreamable(Streamable streamable) {
         mStreamable = streamable;
     }
 

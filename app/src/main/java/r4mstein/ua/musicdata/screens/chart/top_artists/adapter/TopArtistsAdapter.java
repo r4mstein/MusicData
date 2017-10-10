@@ -39,7 +39,7 @@ public class TopArtistsAdapter extends RecyclerView.Adapter<TopArtistsAdapter.To
                 .load(model.getPhotoURL())
                 .error(R.drawable.bg)
                 .placeholder(R.drawable.bg)
-                .into(holder.ivFoto);
+                .into(holder.ivPhoto);
 
         holder.tvName.setText(model.getName());
         holder.itemView.setOnClickListener(view -> mClickListener.itemClicked(model.getName()));
@@ -66,13 +66,13 @@ public class TopArtistsAdapter extends RecyclerView.Adapter<TopArtistsAdapter.To
 
     public class TopArtistsViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView ivFoto;
+        private ImageView ivPhoto;
         private TextView tvName;
 
         public TopArtistsViewHolder(View itemView) {
             super(itemView);
 
-            ivFoto = itemView.findViewById(R.id.iv_ITA);
+            ivPhoto = itemView.findViewById(R.id.iv_ITA);
             tvName = itemView.findViewById(R.id.tv_name_ITA);
         }
     }

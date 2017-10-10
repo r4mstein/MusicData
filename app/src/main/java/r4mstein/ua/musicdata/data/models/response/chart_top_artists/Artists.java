@@ -1,5 +1,5 @@
 
-package r4mstein.ua.musicdata.data.models.respons.ChartTopArtists;
+package r4mstein.ua.musicdata.data.models.response.chart_top_artists;
 
 import com.google.gson.annotations.SerializedName;
 

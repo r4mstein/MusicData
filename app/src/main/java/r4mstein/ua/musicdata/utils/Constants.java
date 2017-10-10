@@ -11,4 +11,5 @@ public class Constants {
 
     // requests
     public static final String REQUEST_CHART_TA = "chart.gettopartists";
+    public static final String REQUEST_CHART_TT = "chart.gettoptracks";
 }
