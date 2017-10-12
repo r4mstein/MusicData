@@ -7,11 +7,13 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import r4mstein.ua.musicdata.screens.detail.di.DetailActivityComponent;
 import r4mstein.ua.musicdata.screens.main.di.MainActivityComponent;
 import r4mstein.ua.musicdata.utils.Logger;
 
 @Module(subcomponents = {
-        MainActivityComponent.class
+        MainActivityComponent.class,
+        DetailActivityComponent.class
 })
 public class AppModule {
 

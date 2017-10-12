@@ -7,6 +7,8 @@ import dagger.Module;
 import dagger.android.ActivityKey;
 import dagger.android.AndroidInjector;
 import dagger.multibindings.IntoMap;
+import r4mstein.ua.musicdata.screens.detail.DetailActivity;
+import r4mstein.ua.musicdata.screens.detail.di.DetailActivityComponent;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
 import r4mstein.ua.musicdata.screens.main.di.MainActivityComponent;
 
@@ -17,4 +19,9 @@ public abstract class ActivityBuilder {
     @IntoMap
     @ActivityKey(MainActivity.class)
     abstract AndroidInjector.Factory<? extends Activity> bindMainActivity(MainActivityComponent.Builder builder);
+
+    @Binds
+    @IntoMap
+    @ActivityKey(DetailActivity.class)
+    abstract AndroidInjector.Factory<? extends Activity> bindDetailActivity(DetailActivityComponent.Builder builder);
 }

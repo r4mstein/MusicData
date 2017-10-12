@@ -1,6 +1,7 @@
 package r4mstein.ua.musicdata.screens.chart.top_artists;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import dagger.android.support.AndroidSupportInjection;
 import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.base.BaseFragment;
 import r4mstein.ua.musicdata.screens.chart.top_artists.adapter.TopArtistsAdapter;
+import r4mstein.ua.musicdata.screens.detail.DetailActivity;
 import r4mstein.ua.musicdata.screens.dialogs.MenuDialog;
 import r4mstein.ua.musicdata.screens.dialogs.MenuDialogListener;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
@@ -28,7 +30,6 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
 
     private RecyclerView mRecyclerView;
     private TopArtistsAdapter mAdapter;
-//    private LoadingDialog mLoadingDialog;
 
     @Override
     protected int getLayoutResource() {
@@ -86,6 +87,7 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
             @Override
             public void infoClicked() {
                 mLogger.d("infoClicked");
+                startActivity(new Intent(getActivityGeneric(), DetailActivity.class));
             }
 
             @Override
