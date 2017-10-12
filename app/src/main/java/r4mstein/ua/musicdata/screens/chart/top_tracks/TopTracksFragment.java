@@ -14,6 +14,8 @@ import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.base.BaseFragment;
 import r4mstein.ua.musicdata.screens.chart.top_tracks.adapter.TopTracksAdapter;
 import r4mstein.ua.musicdata.screens.dialogs.LoadingDialog;
+import r4mstein.ua.musicdata.screens.dialogs.MenuDialog;
+import r4mstein.ua.musicdata.screens.dialogs.MenuDialogListener;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
 import r4mstein.ua.musicdata.utils.Logger;
 import r4mstein.ua.musicdata.utils.endless.EndlessScrollListener;
@@ -67,12 +69,42 @@ public class TopTracksFragment extends BaseFragment<MainActivity> implements Top
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new TopTracksAdapter(getContext());
-        mAdapter.setClickListener((track, name) -> mLogger.d("itemClicked: name: " + name + ", track: " + track));
+        mAdapter.setClickListener((track, name) -> {
+            mLogger.d("itemClicked: name: " + name + ", track: " + track);
+            showMenuDialog(track);
+        });
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(new EndlessScrollListener(layoutManager, () -> {
             mPresenter.getNextPage();
             return true;
         }));
+    }
+
+    private void showMenuDialog(String name) {
+        MenuDialog menuDialog = MenuDialog.newInstance(name, getString(R.string.track_info_DM),
+                getString(R.string.similar_tracks_DM), View.GONE, View.GONE);
+        menuDialog.setListener(new MenuDialogListener() {
+            @Override
+            public void infoClicked() {
+                mLogger.d("infoClicked");
+            }
+
+            @Override
+            public void albumsClicked() {
+                mLogger.d("albumsClicked");
+            }
+
+            @Override
+            public void tracksClicked() {
+                mLogger.d("tracksClicked");
+            }
+
+            @Override
+            public void similarClicked() {
+                mLogger.d("similarClicked");
+            }
+        });
+        menuDialog.show(getFragmentManager(), "MenuDialog");
     }
 
     @Override

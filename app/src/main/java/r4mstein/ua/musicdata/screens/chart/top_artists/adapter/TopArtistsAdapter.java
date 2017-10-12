@@ -42,7 +42,7 @@ public class TopArtistsAdapter extends RecyclerView.Adapter<TopArtistsAdapter.To
                 .into(holder.ivPhoto);
 
         holder.tvName.setText(model.getName());
-        holder.itemView.setOnClickListener(view -> mClickListener.itemClicked(model.getName()));
+        holder.itemView.setOnClickListener(view -> mClickListener.itemClicked(model.getName(), position));
     }
 
     @Override

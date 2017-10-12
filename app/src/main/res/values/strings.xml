@@ -10,4 +10,11 @@
     <string name="chart_top_artists">Chart Top Artists</string>
     <string name="chart_top_tracks">Chart Top Tracks</string>
 
+    <string name="artist_info_DM">Artist Info</string>
+    <string name="track_info_DM">Track Info</string>
+    <string name="top_albums_DM">Top Albums</string>
+    <string name="top_tracks_DM">Top Tracks</string>
+    <string name="similar_artists_DM">Similar Artists</string>
+    <string name="similar_tracks_DM">Similar Tracks</string>
+
 </resources>

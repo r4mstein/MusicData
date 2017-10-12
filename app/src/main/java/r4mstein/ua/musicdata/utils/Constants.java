@@ -12,4 +12,11 @@ public class Constants {
     // requests
     public static final String REQUEST_CHART_TA = "chart.gettopartists";
     public static final String REQUEST_CHART_TT = "chart.gettoptracks";
+
+    // menu dialog
+    public static final String MENU_DIALOG_HEADER = "md_header";
+    public static final String MENU_DIALOG_INFO = "md_info";
+    public static final String MENU_DIALOG_SIMILAR = "md_similar";
+    public static final String MENU_DIALOG_ALBUMS_VISIBILITY = "md_albums_visibility";
+    public static final String MENU_DIALOG_TRACKS_VISIBILITY = "md_tracks_visibility";
 }

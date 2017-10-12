@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import javax.inject.Inject;
@@ -15,6 +14,8 @@ import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.base.BaseFragment;
 import r4mstein.ua.musicdata.screens.chart.top_artists.adapter.TopArtistsAdapter;
 import r4mstein.ua.musicdata.screens.dialogs.LoadingDialog;
+import r4mstein.ua.musicdata.screens.dialogs.MenuDialog;
+import r4mstein.ua.musicdata.screens.dialogs.MenuDialogListener;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
 import r4mstein.ua.musicdata.utils.Logger;
 import r4mstein.ua.musicdata.utils.endless.EndlessScrollListener;
@@ -68,12 +69,42 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new TopArtistsAdapter(getContext());
-        mAdapter.setClickListener(name -> mLogger.d("itemClicked: name: " + name));
+        mAdapter.setClickListener((name, position) -> {
+            mLogger.d("itemClicked: name: " + name);
+            showMenuDialog(name);
+        });
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(new EndlessScrollListener(layoutManager, () -> {
             mPresenter.getNextPage();
             return true;
         }));
+    }
+
+    private void showMenuDialog(String name) {
+        MenuDialog menuDialog = MenuDialog.newInstance(name, getString(R.string.artist_info_DM),
+                getString(R.string.similar_artists_DM), View.VISIBLE, View.VISIBLE);
+        menuDialog.setListener(new MenuDialogListener() {
+            @Override
+            public void infoClicked() {
+                mLogger.d("infoClicked");
+            }
+
+            @Override
+            public void albumsClicked() {
+                mLogger.d("albumsClicked");
+            }
+
+            @Override
+            public void tracksClicked() {
+                mLogger.d("tracksClicked");
+            }
+
+            @Override
+            public void similarClicked() {
+                mLogger.d("similarClicked");
+            }
+        });
+        menuDialog.show(TopArtistsFragment.this.getFragmentManager(), "MenuDialog");
     }
 
     @Override
