@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import r4mstein.ua.musicdata.screens.dialogs.LoadingDialog;
+
 public abstract class BaseFragment<A extends BaseActivity> extends Fragment {
 
     protected A mActivity;
@@ -17,6 +19,8 @@ public abstract class BaseFragment<A extends BaseActivity> extends Fragment {
     protected abstract void findUI(View rootView);
 
     protected abstract void setupUI();
+
+    private LoadingDialog mLoadingDialog;
 
     @SuppressWarnings("unchecked")
     protected A getActivityGeneric() {
@@ -43,5 +47,17 @@ public abstract class BaseFragment<A extends BaseActivity> extends Fragment {
         setupUI();
 
         return rootView;
+    }
+
+    protected void progressDialogBaseShow() {
+        if (mLoadingDialog == null) mLoadingDialog = new LoadingDialog();
+
+        if (!mLoadingDialog.isShowing()) mLoadingDialog.show(
+                getActivityGeneric().getSupportFragmentManager(), "progress dialog");
+    }
+
+    protected void progressDialogBaseHide() {
+        if (mLoadingDialog != null && mLoadingDialog.isShowing() && !mLoadingDialog.isDismiss())
+            mLoadingDialog.dismiss();
     }
 }

@@ -13,7 +13,6 @@ import dagger.android.support.AndroidSupportInjection;
 import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.base.BaseFragment;
 import r4mstein.ua.musicdata.screens.chart.top_artists.adapter.TopArtistsAdapter;
-import r4mstein.ua.musicdata.screens.dialogs.LoadingDialog;
 import r4mstein.ua.musicdata.screens.dialogs.MenuDialog;
 import r4mstein.ua.musicdata.screens.dialogs.MenuDialogListener;
 import r4mstein.ua.musicdata.screens.main.MainActivity;
@@ -29,7 +28,7 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
 
     private RecyclerView mRecyclerView;
     private TopArtistsAdapter mAdapter;
-    private LoadingDialog mLoadingDialog;
+//    private LoadingDialog mLoadingDialog;
 
     @Override
     protected int getLayoutResource() {
@@ -114,15 +113,11 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
 
     @Override
     public void progressDialogShow() {
-        if (mLoadingDialog == null) mLoadingDialog = new LoadingDialog();
-
-        if (!mLoadingDialog.isShowing()) mLoadingDialog.show(
-                getActivityGeneric().getSupportFragmentManager(), "progress dialog");
+        progressDialogBaseShow();
     }
 
     @Override
     public void progressDialogHide() {
-        if (mLoadingDialog != null && mLoadingDialog.isShowing() && !mLoadingDialog.isDismiss())
-            mLoadingDialog.dismiss();
+        progressDialogBaseHide();
     }
 }
