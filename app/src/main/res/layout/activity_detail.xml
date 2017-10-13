@@ -4,15 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar_AD"
-        layout="@layout/toolbar_main" />
-
     <FrameLayout
         android:id="@+id/fl_container_AD"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar_AD"
         />
 
 </RelativeLayout>
