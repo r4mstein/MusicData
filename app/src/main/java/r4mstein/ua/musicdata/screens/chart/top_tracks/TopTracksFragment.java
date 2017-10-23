@@ -28,7 +28,6 @@ public class TopTracksFragment extends BaseFragment<MainActivity> implements Top
 
     private RecyclerView mRecyclerView;
     private TopTracksAdapter mAdapter;
-//    private LoadingDialog mLoadingDialog;
 
     @Override
     protected int getLayoutResource() {

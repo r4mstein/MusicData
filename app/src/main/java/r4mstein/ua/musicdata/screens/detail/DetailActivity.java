@@ -11,9 +11,11 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 import r4mstein.ua.musicdata.R;
 import r4mstein.ua.musicdata.screens.artist.info.ArtistInfoFragment;
+import r4mstein.ua.musicdata.screens.artist.top_albums.TopAlbumsFragment;
 import r4mstein.ua.musicdata.screens.base.BaseActivity;
 
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_INFO_NAME;
+import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_ALBUMS;
 
 public class DetailActivity extends BaseActivity implements DetailContract.DetailView, HasSupportFragmentInjector {
 
@@ -22,6 +24,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
 
     @Inject
     DetailPresenter mPresenter;
+    String data;
 
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
@@ -44,12 +47,18 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
 
     @Override
     protected void setupUI() {
-        replaceFragment(ArtistInfoFragment.newInstance(getIntent().getStringExtra(ARTIST_INFO_NAME)));
+        if (getIntent().getStringExtra(ARTIST_INFO_NAME) != null)
+            replaceFragment(ArtistInfoFragment.newInstance(getIntent().getStringExtra(ARTIST_INFO_NAME)));
+        else if (getIntent().getStringExtra(ARTIST_TOP_ALBUMS) != null) {
+            replaceFragment(TopAlbumsFragment.newInstance(getIntent().getStringExtra(ARTIST_TOP_ALBUMS)));
+
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
+        if (getIntent().getStringExtra(ARTIST_TOP_ALBUMS) != null) this.setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
     }
 }

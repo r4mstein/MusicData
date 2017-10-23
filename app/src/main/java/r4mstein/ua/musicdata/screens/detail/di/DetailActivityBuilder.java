@@ -9,6 +9,8 @@ import dagger.android.support.FragmentKey;
 import dagger.multibindings.IntoMap;
 import r4mstein.ua.musicdata.screens.artist.info.ArtistInfoFragment;
 import r4mstein.ua.musicdata.screens.artist.info.di.ArtistInfoComponent;
+import r4mstein.ua.musicdata.screens.artist.top_albums.TopAlbumsFragment;
+import r4mstein.ua.musicdata.screens.artist.top_albums.di.TopAlbumsComponent;
 
 @Module
 public abstract class DetailActivityBuilder {
@@ -17,4 +19,9 @@ public abstract class DetailActivityBuilder {
     @IntoMap
     @FragmentKey(ArtistInfoFragment.class)
     abstract AndroidInjector.Factory<? extends Fragment> provideArtistInfoFragmentFactory(ArtistInfoComponent.Builder builder);
+
+    @Binds
+    @IntoMap
+    @FragmentKey(TopAlbumsFragment.class)
+    abstract AndroidInjector.Factory<? extends Fragment> provideTopAlbumsFragmentFactory(TopAlbumsComponent.Builder builder);
 }

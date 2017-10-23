@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/margin_6"
+    android:layout_marginBottom="@dimen/margin_6"
+    android:layout_marginStart="@dimen/margin_16"
+    android:layout_marginEnd="@dimen/margin_16"
+    app:cardCornerRadius="@dimen/margin_8"
+    app:cardElevation="@dimen/margin_6">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_350">
+
+        <ImageView
+            android:id="@+id/iv_IAA"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_350"
+            tools:src="@drawable/bg"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/tv_play_count_IAA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_album_IAA"
+            android:gravity="end|center"
+            android:paddingTop="@dimen/margin_8"
+            android:paddingStart="@dimen/margin_8"
+            android:paddingEnd="@dimen/margin_8"
+            tools:text="Play count: 5245666"
+            android:textSize="@dimen/text_size_18"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:background="@color/colorPrimary"
+            android:drawableEnd="@drawable/ic_count"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:id="@+id/tv_album_IAA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="end|center_vertical"
+            android:paddingBottom="@dimen/margin_8"
+            android:paddingStart="@dimen/margin_8"
+            android:paddingEnd="@dimen/margin_8"
+            tools:text="Look What You Made Me Do"
+            android:textSize="@dimen/text_size_20"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:background="@color/colorPrimary"
+            android:drawableEnd="@drawable/ic_album"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

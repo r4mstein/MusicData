@@ -22,6 +22,7 @@ import r4mstein.ua.musicdata.utils.Logger;
 import r4mstein.ua.musicdata.utils.endless.EndlessScrollListener;
 
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_INFO_NAME;
+import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_ALBUMS;
 
 public class TopArtistsFragment extends BaseFragment<MainActivity> implements TopArtistsContract.TopArtistsView {
 
@@ -97,6 +98,9 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
             @Override
             public void albumsClicked() {
                 mLogger.d("albumsClicked");
+                Intent intent = new Intent(getActivityGeneric(), DetailActivity.class);
+                intent.putExtra(ARTIST_TOP_ALBUMS, name);
+                startActivity(intent);
             }
 
             @Override

@@ -10,11 +10,13 @@ public class Constants {
     public static final String FORMAT = "json";
 
     public static final String ARTIST_INFO_NAME = "artist_name";
+    public static final String ARTIST_TOP_ALBUMS = "artist_top_albums";
 
     // requests
     public static final String REQUEST_CHART_TA = "chart.gettopartists";
     public static final String REQUEST_CHART_TT = "chart.gettoptracks";
     public static final String REQUEST_ARIST_INFO = "artist.getinfo";
+    public static final String REQUEST_ARTIST_ALBUMS = "artist.gettopalbums";
 
     // menu dialog
     public static final String MENU_DIALOG_HEADER = "md_header";
