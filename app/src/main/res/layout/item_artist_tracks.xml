@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_6"
+    android:layout_marginEnd="@dimen/margin_16"
+    android:layout_marginStart="@dimen/margin_16"
+    android:layout_marginTop="@dimen/margin_6"
+    app:cardCornerRadius="@dimen/margin_8"
+    app:cardElevation="@dimen/margin_6">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_250">
+
+        <ImageView
+            android:id="@+id/iv_IAT"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_250"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/bg"
+            />
+
+        <TextView
+            android:id="@+id/tv_rank_IAT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/rank_bg"
+            android:drawableEnd="@drawable/ic_rank"
+            android:gravity="center"
+            android:padding="@dimen/margin_8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="italic"
+            tools:text="Rank: 1"
+            />
+
+        <TextView
+            android:id="@+id/tv_play_count_IAT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_track_IAT"
+            android:background="@color/colorPrimary"
+            android:drawableEnd="@drawable/ic_count"
+            android:ellipsize="end"
+            android:gravity="end|center"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/margin_8"
+            android:paddingStart="@dimen/margin_8"
+            android:paddingTop="@dimen/margin_8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="italic"
+            tools:text="Play count: 5245666"
+            />
+
+        <TextView
+            android:id="@+id/tv_track_IAT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:drawableEnd="@drawable/ic_track"
+            android:ellipsize="end"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/margin_8"
+            android:paddingEnd="@dimen/margin_8"
+            android:paddingStart="@dimen/margin_8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="italic"
+            tools:text="Look What You Made Me Do"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

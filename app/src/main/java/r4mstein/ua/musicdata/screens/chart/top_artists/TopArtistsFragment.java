@@ -23,6 +23,7 @@ import r4mstein.ua.musicdata.utils.endless.EndlessScrollListener;
 
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_INFO_NAME;
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_ALBUMS;
+import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_TRACKS;
 
 public class TopArtistsFragment extends BaseFragment<MainActivity> implements TopArtistsContract.TopArtistsView {
 
@@ -90,22 +91,19 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
             @Override
             public void infoClicked() {
                 mLogger.d("infoClicked");
-                Intent intent = new Intent(getActivityGeneric(), DetailActivity.class);
-                intent.putExtra(ARTIST_INFO_NAME, name);
-                startActivity(intent);
+                goToDetail(ARTIST_INFO_NAME, name);
             }
 
             @Override
             public void albumsClicked() {
                 mLogger.d("albumsClicked");
-                Intent intent = new Intent(getActivityGeneric(), DetailActivity.class);
-                intent.putExtra(ARTIST_TOP_ALBUMS, name);
-                startActivity(intent);
+                goToDetail(ARTIST_TOP_ALBUMS, name);
             }
 
             @Override
             public void tracksClicked() {
                 mLogger.d("tracksClicked");
+                goToDetail(ARTIST_TOP_TRACKS, name);
             }
 
             @Override
@@ -114,6 +112,12 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
             }
         });
         menuDialog.show(TopArtistsFragment.this.getFragmentManager(), "MenuDialog");
+    }
+
+    private void goToDetail(String bundleConst, String name) {
+        Intent intent = new Intent(getActivityGeneric(), DetailActivity.class);
+        intent.putExtra(bundleConst, name);
+        startActivity(intent);
     }
 
     @Override

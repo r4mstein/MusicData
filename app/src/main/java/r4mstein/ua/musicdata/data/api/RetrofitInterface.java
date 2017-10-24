@@ -3,6 +3,7 @@ package r4mstein.ua.musicdata.data.api;
 import io.reactivex.Observable;
 import r4mstein.ua.musicdata.data.models.response.artist_albums.ArtistTopAlbums;
 import r4mstein.ua.musicdata.data.models.response.artist_info.ArtistInfo;
+import r4mstein.ua.musicdata.data.models.response.artist_tracks.ArtistTopTracks;
 import r4mstein.ua.musicdata.data.models.response.chart_top_artists.ChartTopArtists;
 import r4mstein.ua.musicdata.data.models.response.chart_top_tracks.ChartTopTracks;
 import retrofit2.http.GET;
@@ -34,6 +35,14 @@ public interface RetrofitInterface {
 
     @GET("2.0/")
     Observable<ArtistTopAlbums> getArtistAlbums(@Query("method") String method,
+                                                @Query("artist") String artist,
+                                                @Query("api_key") String apiKey,
+                                                @Query("limit") long limit,
+                                                @Query("page") long page,
+                                                @Query("format") String format);
+
+    @GET("2.0/")
+    Observable<ArtistTopTracks> getArtistTracks(@Query("method") String method,
                                                 @Query("artist") String artist,
                                                 @Query("api_key") String apiKey,
                                                 @Query("limit") long limit,

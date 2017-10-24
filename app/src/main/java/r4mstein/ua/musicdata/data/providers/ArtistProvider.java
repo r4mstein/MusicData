@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import r4mstein.ua.musicdata.data.api.ArtistApi;
 import r4mstein.ua.musicdata.data.models.response.artist_albums.ArtistTopAlbums;
 import r4mstein.ua.musicdata.data.models.response.artist_info.ArtistInfo;
+import r4mstein.ua.musicdata.data.models.response.artist_tracks.ArtistTopTracks;
 
 public class ArtistProvider extends BaseProvider implements ArtistApi {
 
@@ -22,5 +23,11 @@ public class ArtistProvider extends BaseProvider implements ArtistApi {
     public Observable<ArtistTopAlbums> getArtistAlbums(String method, String artist, String apiKey,
                                                        long limit, long page, String format) {
         return api.getArtistAlbums(method, artist, apiKey, limit, page, format);
+    }
+
+    @Override
+    public Observable<ArtistTopTracks> getArtistTracks(String method, String artist, String apiKey,
+                                                       long limit, long page, String format) {
+        return api.getArtistTracks(method, artist, apiKey, limit, page, format);
     }
 }
