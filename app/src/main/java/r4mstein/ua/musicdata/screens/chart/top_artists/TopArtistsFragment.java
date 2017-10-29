@@ -22,6 +22,7 @@ import r4mstein.ua.musicdata.utils.Logger;
 import r4mstein.ua.musicdata.utils.endless.EndlessScrollListener;
 
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_INFO_NAME;
+import static r4mstein.ua.musicdata.utils.Constants.ARTIST_SIMILAR;
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_ALBUMS;
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_TRACKS;
 
@@ -109,6 +110,7 @@ public class TopArtistsFragment extends BaseFragment<MainActivity> implements To
             @Override
             public void similarClicked() {
                 mLogger.d("similarClicked");
+                goToDetail(ARTIST_SIMILAR, name);
             }
         });
         menuDialog.show(TopArtistsFragment.this.getFragmentManager(), "MenuDialog");

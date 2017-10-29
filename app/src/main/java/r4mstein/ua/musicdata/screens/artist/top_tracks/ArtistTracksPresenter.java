@@ -61,7 +61,10 @@ public class ArtistTracksPresenter extends BasePresenter implements ArtistTracks
                 .doAfterTerminate(() -> mView.progressDialogHide())
                 .subscribe(
                         response -> processingResponse(response, pageNumber),
-                        throwable -> mLogger.d(throwable.getMessage())
+                        throwable -> {
+                            mLogger.d(throwable.getMessage());
+                            mView.progressDialogHide();
+                        }
                 );
     }
 

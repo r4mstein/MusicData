@@ -12,6 +12,7 @@ public class Constants {
     public static final String ARTIST_INFO_NAME = "artist_name";
     public static final String ARTIST_TOP_ALBUMS = "artist_top_albums";
     public static final String ARTIST_TOP_TRACKS = "artist_top_tracks";
+    public static final String ARTIST_SIMILAR = "artist_similar";
 
     // requests
     public static final String REQUEST_CHART_TA = "chart.gettopartists";
@@ -19,6 +20,7 @@ public class Constants {
     public static final String REQUEST_ARIST_INFO = "artist.getinfo";
     public static final String REQUEST_ARTIST_ALBUMS = "artist.gettopalbums";
     public static final String REQUEST_ARTIST_TRACKS = "artist.gettoptracks";
+    public static final String REQUEST_ARTIST_SIMILAR = "artist.getsimilar";
 
     // menu dialog
     public static final String MENU_DIALOG_HEADER = "md_header";
