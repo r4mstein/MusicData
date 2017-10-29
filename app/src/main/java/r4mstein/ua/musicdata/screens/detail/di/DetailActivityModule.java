@@ -9,12 +9,14 @@ import r4mstein.ua.musicdata.screens.artist.top_tracks.di.ArtistTracksComponent;
 import r4mstein.ua.musicdata.screens.detail.DetailActivity;
 import r4mstein.ua.musicdata.screens.detail.DetailContract;
 import r4mstein.ua.musicdata.screens.detail.DetailPresenter;
+import r4mstein.ua.musicdata.screens.track.info.di.TrackInfoComponent;
 
 @Module (subcomponents = {
         ArtistInfoComponent.class,
         TopAlbumsComponent.class,
         ArtistTracksComponent.class,
-        SimilarArtistsComponent.class
+        SimilarArtistsComponent.class,
+        TrackInfoComponent.class
 })
 public class DetailActivityModule {
 

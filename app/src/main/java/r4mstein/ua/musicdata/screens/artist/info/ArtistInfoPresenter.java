@@ -19,7 +19,7 @@ import r4mstein.ua.musicdata.utils.Logger;
 
 import static r4mstein.ua.musicdata.utils.Constants.API_KEY;
 import static r4mstein.ua.musicdata.utils.Constants.FORMAT;
-import static r4mstein.ua.musicdata.utils.Constants.REQUEST_ARIST_INFO;
+import static r4mstein.ua.musicdata.utils.Constants.REQUEST_ARTIST_INFO;
 
 public class ArtistInfoPresenter extends BasePresenter implements ArtistInfoContract.ArtistInfoPresenter {
 
@@ -46,7 +46,7 @@ public class ArtistInfoPresenter extends BasePresenter implements ArtistInfoCont
     }
 
     public void getArtistInfo(String artist) {
-        mProvider.getArtistInfo(REQUEST_ARIST_INFO, artist, API_KEY, FORMAT)
+        mProvider.getArtistInfo(REQUEST_ARTIST_INFO, artist, API_KEY, FORMAT)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable -> mView.progressDialogShow())

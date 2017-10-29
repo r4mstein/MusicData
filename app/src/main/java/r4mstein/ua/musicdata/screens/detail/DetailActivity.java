@@ -15,11 +15,14 @@ import r4mstein.ua.musicdata.screens.artist.similar.SimilarArtistsFragment;
 import r4mstein.ua.musicdata.screens.artist.top_albums.TopAlbumsFragment;
 import r4mstein.ua.musicdata.screens.artist.top_tracks.ArtistTracksFragment;
 import r4mstein.ua.musicdata.screens.base.BaseActivity;
+import r4mstein.ua.musicdata.screens.track.info.TrackInfoFragment;
 
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_INFO_NAME;
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_SIMILAR;
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_ALBUMS;
 import static r4mstein.ua.musicdata.utils.Constants.ARTIST_TOP_TRACKS;
+import static r4mstein.ua.musicdata.utils.Constants.TRACK_INFO_ARTIST;
+import static r4mstein.ua.musicdata.utils.Constants.TRACK_INFO_NAME;
 
 public class DetailActivity extends BaseActivity implements DetailContract.DetailView, HasSupportFragmentInjector {
 
@@ -56,7 +59,8 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
-        if (getIntent().getStringExtra(ARTIST_INFO_NAME) != null) this.setTheme(R.style.DetailScreenTheme);
+        if (getIntent().getStringExtra(ARTIST_INFO_NAME) != null || getIntent().getStringExtra(TRACK_INFO_NAME) != null)
+            this.setTheme(R.style.DetailScreenTheme);
         super.onCreate(savedInstanceState);
     }
 
@@ -69,5 +73,8 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
             replaceFragment(ArtistTracksFragment.newInstance(getIntent().getStringExtra(ARTIST_TOP_TRACKS)));
         else if (getIntent().getStringExtra(ARTIST_SIMILAR) != null)
             replaceFragment(SimilarArtistsFragment.newInstance(getIntent().getStringExtra(ARTIST_SIMILAR)));
+        else if (getIntent().getStringExtra(TRACK_INFO_NAME) != null)
+            replaceFragment(TrackInfoFragment.newInstance(getIntent().getStringExtra(TRACK_INFO_ARTIST),
+                    getIntent().getStringExtra(TRACK_INFO_NAME)));
     }
 }

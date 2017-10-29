@@ -4,6 +4,8 @@
     <string name="api_key">6f27dbea71d282779c96886a90e61281</string>
     <string name="secret">10cc91d8dbcca451d17149964ecac1cc</string>
 
+    <string name="data_placeholder">data not found</string>
+
     <string name="tv_main_AS">Music Data</string>
     <string name="tv_secondary_AS">from</string>
 

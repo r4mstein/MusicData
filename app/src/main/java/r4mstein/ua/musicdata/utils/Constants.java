@@ -13,14 +13,17 @@ public class Constants {
     public static final String ARTIST_TOP_ALBUMS = "artist_top_albums";
     public static final String ARTIST_TOP_TRACKS = "artist_top_tracks";
     public static final String ARTIST_SIMILAR = "artist_similar";
+    public static final String TRACK_INFO_NAME = "track_info_name";
+    public static final String TRACK_INFO_ARTIST = "track_info_artist";
 
     // requests
     public static final String REQUEST_CHART_TA = "chart.gettopartists";
     public static final String REQUEST_CHART_TT = "chart.gettoptracks";
-    public static final String REQUEST_ARIST_INFO = "artist.getinfo";
+    public static final String REQUEST_ARTIST_INFO = "artist.getinfo";
     public static final String REQUEST_ARTIST_ALBUMS = "artist.gettopalbums";
     public static final String REQUEST_ARTIST_TRACKS = "artist.gettoptracks";
     public static final String REQUEST_ARTIST_SIMILAR = "artist.getsimilar";
+    public static final String REQUEST_TRACK_INFO = "track.getInfo";
 
     // menu dialog
     public static final String MENU_DIALOG_HEADER = "md_header";

@@ -15,6 +15,8 @@ import r4mstein.ua.musicdata.screens.artist.top_albums.TopAlbumsFragment;
 import r4mstein.ua.musicdata.screens.artist.top_albums.di.TopAlbumsComponent;
 import r4mstein.ua.musicdata.screens.artist.top_tracks.ArtistTracksFragment;
 import r4mstein.ua.musicdata.screens.artist.top_tracks.di.ArtistTracksComponent;
+import r4mstein.ua.musicdata.screens.track.info.TrackInfoFragment;
+import r4mstein.ua.musicdata.screens.track.info.di.TrackInfoComponent;
 
 @Module
 public abstract class DetailActivityBuilder {
@@ -38,4 +40,9 @@ public abstract class DetailActivityBuilder {
     @IntoMap
     @FragmentKey(SimilarArtistsFragment.class)
     abstract AndroidInjector.Factory<? extends Fragment> provideSimilarArtistsFragmentFactory(SimilarArtistsComponent.Builder builder);
+
+    @Binds
+    @IntoMap
+    @FragmentKey(TrackInfoFragment.class)
+    abstract AndroidInjector.Factory<? extends Fragment> provideTrackInfoFragmentFactory(TrackInfoComponent.Builder builder);
 }

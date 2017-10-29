@@ -7,12 +7,13 @@ import r4mstein.ua.musicdata.data.models.response.artist_similar.ArtistSimilar;
 import r4mstein.ua.musicdata.data.models.response.artist_tracks.ArtistTopTracks;
 import r4mstein.ua.musicdata.data.models.response.chart_top_artists.ChartTopArtists;
 import r4mstein.ua.musicdata.data.models.response.chart_top_tracks.ChartTopTracks;
+import r4mstein.ua.musicdata.data.models.response.track_info.TrackInfo;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
-    // chart
+                    // CHART //
     @GET("2.0/")
     Observable<ChartTopArtists> getTopArtists(@Query("method") String method,
                                               @Query("api_key") String apiKey,
@@ -27,7 +28,7 @@ public interface RetrofitInterface {
                                             @Query("page") long page,
                                             @Query("format") String format);
 
-    // artist
+                    // ARTIST //
     @GET("2.0/")
     Observable<ArtistInfo> getArtistInfo(@Query("method") String method,
                                          @Query("artist") String artist,
@@ -55,4 +56,12 @@ public interface RetrofitInterface {
                                                 @Query("artist") String artist,
                                                 @Query("api_key") String apiKey,
                                                 @Query("format") String format);
+
+                    // TRACK //
+    @GET("2.0/")
+    Observable<TrackInfo> getTrackInfo(@Query("method") String method,
+                                       @Query("artist") String artist,
+                                       @Query("api_key") String apiKey,
+                                       @Query("track") String track,
+                                       @Query("format") String format);
 }
